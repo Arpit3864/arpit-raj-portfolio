@@ -162,7 +162,7 @@ section{padding:4.5rem 0}
 .work-card:hover{border-color:color-mix(in srgb,var(--accent) 60%, var(--border));box-shadow:var(--shadow)}
 .work-card[hidden]{display:none}
 .preview{position:relative;aspect-ratio:16/9.5;background:var(--surface-2);border-bottom:1px solid var(--border);
-  display:grid;place-items:center;cursor:pointer;border:none;width:100%;padding:0;color:var(--ink);text-decoration:none}
+  display:grid;place-items:center;cursor:pointer;border:none;width:100%;padding:0;color:var(--ink);text-decoration:none;isolation:isolate;overflow:hidden}
 button.preview{text-align:center}
 .preview .perfs{position:absolute;top:0;left:0;right:0;height:22px;
   background-image:radial-gradient(circle at 8px 11px, var(--perf) 3px, transparent 3.5px);
@@ -239,24 +239,15 @@ button.preview{text-align:center}
 footer{border-top:1px solid var(--border);padding:1.6rem 0;color:var(--faint);font-size:.82rem}
 .foot{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:center}
 
-/* ---------- lightbox ---------- */
-.lightbox{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:1.2rem}
-.lightbox.open{display:flex}
-.lightbox .backdrop{position:absolute;inset:0;background:rgba(8,4,2,.82);backdrop-filter:blur(6px)}
-.dialog{position:relative;width:min(880px,100%);background:var(--field);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
-.dialog-head{display:flex;align-items:center;gap:1rem;padding:.9rem 1.2rem;border-bottom:1px solid var(--border);background:var(--surface)}
-.dialog-head .d-title{font-weight:700;letter-spacing:.02em}
-.dialog-head .d-sub{font-size:.75rem;color:var(--muted);font-family:ui-monospace,Menlo,monospace}
-.d-close{margin-left:auto;background:var(--surface-2);border:1px solid var(--border);color:var(--ink);width:38px;height:38px;
-  border-radius:10px;font-size:1.15rem;cursor:pointer;line-height:1}
-.d-close:hover{border-color:var(--accent);color:var(--accent)}
-.frame-wrap{position:relative;aspect-ratio:16/9;background:#000}
-.frame-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.frame-wrap .fallback{position:absolute;inset:0;display:flex;flex-direction:column;gap:1rem;align-items:center;justify-content:center;
-  color:#fff;background:#0a0605;padding:2rem;text-align:center}
-.frame-wrap .fallback p{color:#cbb39f;font-size:.9rem;max-width:26rem;margin:0}
-.dialog-foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.85rem 1.2rem;background:var(--surface);
-  border-top:1px solid var(--border)}
+/* ---------- inline playback on card ---------- */
+.preview .thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.preview .shade{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(10,6,4,.62) 0%,rgba(10,6,4,.10) 34%,rgba(10,6,4,.22) 62%,rgba(10,6,4,.58) 100%)}
+.preview .perfs,.preview .code,.preview .badge{z-index:2}
+.preview .code{color:#e8d3bd;text-shadow:0 1px 6px rgba(0,0,0,.65)}
+.preview>span:last-of-type{position:relative;z-index:2}
+.frame-player{position:relative;aspect-ratio:16/9.5;background:#000;border-bottom:1px solid var(--border)}
+.frame-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
 
 /* ---------- responsive ---------- */
@@ -370,9 +361,11 @@ footer{border-top:1px solid var(--border);padding:1.6rem 0;color:var(--faint);fo
 
       <!-- YouTube -->
       <article class="work-card reveal" data-kind="youtube">
-        <button class="preview" data-embed="https://www.youtube.com/embed/QzMFP92rhmw" data-title="YouTube video 01" data-code="YT-01" aria-label="Play YouTube video 01">
+        <button class="preview" data-embed="https://www.youtube.com/embed/QzMFP92rhmw?autoplay=1&rel=0" data-title="YouTube video 01" data-code="YT-01" aria-label="Play YouTube video 01">
           <span class="perfs" aria-hidden="true"></span><span class="code">YT-01</span><span class="badge">YouTube</span>
-          <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play · full title loads in the player</span></span>
+          <img class="thumb" src="assets/thumbs/yt-01.jpg" alt="" loading="lazy" />
+          <span class="shade" aria-hidden="true"></span>
+          <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
         </button>
         <div class="work-body">
           <h3>YouTube video 01</h3>
@@ -381,9 +374,11 @@ footer{border-top:1px solid var(--border);padding:1.6rem 0;color:var(--faint);fo
         </div>
       </article>
       <article class="work-card reveal" data-kind="youtube">
-        <button class="preview" data-embed="https://www.youtube.com/embed/Y4W0ttt2VEs" data-title="YouTube video 02" data-code="YT-02" aria-label="Play YouTube video 02">
+        <button class="preview" data-embed="https://www.youtube.com/embed/Y4W0ttt2VEs?autoplay=1&rel=0" data-title="YouTube video 02" data-code="YT-02" aria-label="Play YouTube video 02">
           <span class="perfs" aria-hidden="true"></span><span class="code">YT-02</span><span class="badge">YouTube</span>
-          <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play · full title loads in the player</span></span>
+          <img class="thumb" src="assets/thumbs/yt-02.jpg" alt="" loading="lazy" />
+          <span class="shade" aria-hidden="true"></span>
+          <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
         </button>
         <div class="work-body">
           <h3>YouTube video 02</h3>
@@ -392,9 +387,11 @@ footer{border-top:1px solid var(--border);padding:1.6rem 0;color:var(--faint);fo
         </div>
       </article>
       <article class="work-card reveal" data-kind="youtube">
-        <button class="preview" data-embed="https://www.youtube.com/embed/jlj2ZyND7Kc" data-title="YouTube video 03" data-code="YT-03" aria-label="Play YouTube video 03">
+        <button class="preview" data-embed="https://www.youtube.com/embed/jlj2ZyND7Kc?autoplay=1&rel=0" data-title="YouTube video 03" data-code="YT-03" aria-label="Play YouTube video 03">
           <span class="perfs" aria-hidden="true"></span><span class="code">YT-03</span><span class="badge">YouTube</span>
-          <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play · full title loads in the player</span></span>
+          <img class="thumb" src="assets/thumbs/yt-03.jpg" alt="" loading="lazy" />
+          <span class="shade" aria-hidden="true"></span>
+          <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
         </button>
         <div class="work-body">
           <h3>YouTube video 03</h3>
@@ -403,9 +400,11 @@ footer{border-top:1px solid var(--border);padding:1.6rem 0;color:var(--faint);fo
         </div>
       </article>
       <article class="work-card reveal" data-kind="youtube">
-        <button class="preview" data-embed="https://www.youtube.com/embed/GmYjHEnr_6M" data-title="YouTube video 04" data-code="YT-04" aria-label="Play YouTube video 04">
+        <button class="preview" data-embed="https://www.youtube.com/embed/GmYjHEnr_6M?autoplay=1&rel=0" data-title="YouTube video 04" data-code="YT-04" aria-label="Play YouTube video 04">
           <span class="perfs" aria-hidden="true"></span><span class="code">YT-04</span><span class="badge">YouTube</span>
-          <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play · full title loads in the player</span></span>
+          <img class="thumb" src="assets/thumbs/yt-04.jpg" alt="" loading="lazy" />
+          <span class="shade" aria-hidden="true"></span>
+          <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
         </button>
         <div class="work-body">
           <h3>YouTube video 04</h3>
@@ -418,6 +417,8 @@ footer{border-top:1px solid var(--border);padding:1.6rem 0;color:var(--faint);fo
       <article class="work-card reveal" data-kind="edits">
         <button class="preview" data-embed="https://drive.google.com/file/d/13xC7_NZZ6bt8xTs6qYQPGpIsM3akxEAB/preview" data-title="Bali 2.0" data-code="E-01" aria-label="Play Bali 2.0">
           <span class="perfs" aria-hidden="true"></span><span class="code">E-01</span><span class="badge">Drive</span>
+          <img class="thumb" src="assets/thumbs/e-01.jpg" alt="" loading="lazy" />
+          <span class="shade" aria-hidden="true"></span>
           <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
         </button>
         <div class="work-body">
@@ -440,6 +441,8 @@ footer{border-top:1px solid var(--border);padding:1.6rem 0;color:var(--faint);fo
       <article class="work-card reveal" data-kind="edits">
         <button class="preview" data-embed="https://drive.google.com/file/d/18OJncm1DWLGEZD9WKMM9ufNqh4NgFkRf/preview" data-title="Catalyst T" data-code="E-03" aria-label="Play Catalyst T">
           <span class="perfs" aria-hidden="true"></span><span class="code">E-03</span><span class="badge">Drive</span>
+          <img class="thumb" src="assets/thumbs/e-03.jpg" alt="" loading="lazy" />
+          <span class="shade" aria-hidden="true"></span>
           <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
         </button>
         <div class="work-body">
@@ -451,6 +454,8 @@ footer{border-top:1px solid var(--border);padding:1.6rem 0;color:var(--faint);fo
       <article class="work-card reveal" data-kind="edits">
         <button class="preview" data-embed="https://drive.google.com/file/d/1InZxu2KH0WdUKhPi34BOsyhi65SrL0sK/preview" data-title="Untitled edit E-04" data-code="E-04" aria-label="Play untitled edit 4">
           <span class="perfs" aria-hidden="true"></span><span class="code">E-04</span><span class="badge">Drive</span>
+          <img class="thumb" src="assets/thumbs/e-04.jpg" alt="" loading="lazy" />
+          <span class="shade" aria-hidden="true"></span>
           <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
         </button>
         <div class="work-body">
@@ -462,6 +467,8 @@ footer{border-top:1px solid var(--border);padding:1.6rem 0;color:var(--faint);fo
       <article class="work-card reveal" data-kind="edits">
         <button class="preview" data-embed="https://drive.google.com/file/d/1TF71zcMwaY8GUU2UMdOldNwLBGuAEp9n/preview" data-title="Day 1–6" data-code="E-05" aria-label="Play Day 1–6">
           <span class="perfs" aria-hidden="true"></span><span class="code">E-05</span><span class="badge">Drive</span>
+          <img class="thumb" src="assets/thumbs/e-05.jpg" alt="" loading="lazy" />
+          <span class="shade" aria-hidden="true"></span>
           <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
         </button>
         <div class="work-body">
@@ -473,6 +480,8 @@ footer{border-top:1px solid var(--border);padding:1.6rem 0;color:var(--faint);fo
       <article class="work-card reveal" data-kind="edits">
         <button class="preview" data-embed="https://drive.google.com/file/d/1VbvU9G7Ut0JGXi6Yyiws82kPSqOxm-k3/preview" data-title="Untitled edit E-06" data-code="E-06" aria-label="Play untitled edit 6">
           <span class="perfs" aria-hidden="true"></span><span class="code">E-06</span><span class="badge">Drive</span>
+          <img class="thumb" src="assets/thumbs/e-06.jpg" alt="" loading="lazy" />
+          <span class="shade" aria-hidden="true"></span>
           <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
         </button>
         <div class="work-body">
@@ -484,6 +493,8 @@ footer{border-top:1px solid var(--border);padding:1.6rem 0;color:var(--faint);fo
       <article class="work-card reveal" data-kind="edits">
         <button class="preview" data-embed="https://drive.google.com/file/d/1cjgY1dryxNcIryUQbi8Fd-1HTCulFd9_/preview" data-title="Untitled edit E-07" data-code="E-07" aria-label="Play untitled edit 7">
           <span class="perfs" aria-hidden="true"></span><span class="code">E-07</span><span class="badge">Drive</span>
+          <img class="thumb" src="assets/thumbs/e-07.jpg" alt="" loading="lazy" />
+          <span class="shade" aria-hidden="true"></span>
           <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
         </button>
         <div class="work-body">
@@ -495,6 +506,8 @@ footer{border-top:1px solid var(--border);padding:1.6rem 0;color:var(--faint);fo
       <article class="work-card reveal" data-kind="edits">
         <button class="preview" data-embed="https://drive.google.com/file/d/1gGjTvuSanAOqmu9W0xJvYyDOTdUEldse/preview" data-title="Bali" data-code="E-08" aria-label="Play Bali">
           <span class="perfs" aria-hidden="true"></span><span class="code">E-08</span><span class="badge">Drive</span>
+          <img class="thumb" src="assets/thumbs/e-08.jpg" alt="" loading="lazy" />
+          <span class="shade" aria-hidden="true"></span>
           <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
         </button>
         <div class="work-body">
@@ -506,6 +519,8 @@ footer{border-top:1px solid var(--border);padding:1.6rem 0;color:var(--faint);fo
       <article class="work-card reveal" data-kind="edits">
         <button class="preview" data-embed="https://drive.google.com/file/d/1mxtau6mhxER5LhZ__inH-JzF3rsmZypp/preview" data-title="Coffee" data-code="E-09" aria-label="Play Coffee">
           <span class="perfs" aria-hidden="true"></span><span class="code">E-09</span><span class="badge">Drive</span>
+          <img class="thumb" src="assets/thumbs/e-09.jpg" alt="" loading="lazy" />
+          <span class="shade" aria-hidden="true"></span>
           <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
         </button>
         <div class="work-body">
@@ -517,6 +532,8 @@ footer{border-top:1px solid var(--border);padding:1.6rem 0;color:var(--faint);fo
       <article class="work-card reveal" data-kind="edits">
         <button class="preview" data-embed="https://drive.google.com/file/d/1myEn9BWUfOEbQ0mBH5Gxwhm6UNmtOKWT/preview" data-title="Hair Care" data-code="E-10" aria-label="Play Hair Care">
           <span class="perfs" aria-hidden="true"></span><span class="code">E-10</span><span class="badge">Drive</span>
+          <img class="thumb" src="assets/thumbs/e-10.jpg" alt="" loading="lazy" />
+          <span class="shade" aria-hidden="true"></span>
           <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
         </button>
         <div class="work-body">
@@ -539,6 +556,8 @@ footer{border-top:1px solid var(--border);padding:1.6rem 0;color:var(--faint);fo
       <article class="work-card reveal" data-kind="edits">
         <button class="preview" data-embed="https://drive.google.com/file/d/1opCD6qlizlcZTbMFHZsSxDPE03fqmItE/preview" data-title="Connection" data-code="E-12" aria-label="Play Connection">
           <span class="perfs" aria-hidden="true"></span><span class="code">E-12</span><span class="badge">Drive</span>
+          <img class="thumb" src="assets/thumbs/e-12.jpg" alt="" loading="lazy" />
+          <span class="shade" aria-hidden="true"></span>
           <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
         </button>
         <div class="work-body">
@@ -549,7 +568,7 @@ footer{border-top:1px solid var(--border);padding:1.6rem 0;color:var(--faint);fo
       </article>
 
     </div>
-    <p class="grid-note">YouTube titles load inside each player. The three "Untitled edit" cards link to shared Drive files whose names weren't readable — their content plays normally.</p>
+    <p class="grid-note">Tap any card to play the video right on it. If a player refuses to load on your network, the "Open original" link on each card takes you straight to the video. The three "Untitled edit" cards link to Drive files whose names weren't readable — their videos play normally.</p>
   </div>
 </section>
 
@@ -701,21 +720,6 @@ footer{border-top:1px solid var(--border);padding:1.6rem 0;color:var(--faint);fo
   </div>
 </footer>
 
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lbTitle" hidden>
-  <div class="backdrop" data-close></div>
-  <div class="dialog">
-    <div class="dialog-head">
-      <div><div class="d-title" id="lbTitle"></div><div class="d-sub" id="lbCode"></div></div>
-      <button class="d-close" id="lbClose" aria-label="Close player">✕</button>
-    </div>
-    <div class="frame-wrap" id="lbFrame"></div>
-    <div class="dialog-foot">
-      <span class="d-sub">If the video doesn't load here, use the original link.</span>
-      <a class="btn btn-ghost btn-sm" id="lbOriginal" href="#" target="_blank" rel="noopener">Open original</a>
-    </div>
-  </div>
-</div>
-
 <script>
 (function(){
   "use strict";
@@ -762,65 +766,22 @@ footer{border-top:1px solid var(--border);padding:1.6rem 0;color:var(--faint);fo
     });
   });
 
-  /* lightbox */
-  var lightbox = document.getElementById("lightbox");
-  var frameWrap = document.getElementById("lbFrame");
-  var lbTitle = document.getElementById("lbTitle");
-  var lbCode = document.getElementById("lbCode");
-  var lbOriginal = document.getElementById("lbOriginal");
-  var lastFocus = null;
-
-  function openLightbox(embed, title, code, original){
-    lastFocus = document.activeElement;
-    lbTitle.textContent = title;
-    lbCode.textContent = code;
-    lbOriginal.setAttribute("href", original);
-    frameWrap.innerHTML = "";
-    var wrap = document.createElement("div");
-    wrap.className = "frame-wrap";
-    var fallback = document.createElement("div");
-    fallback.className = "fallback";
-    var msg = document.createElement("p");
-    msg.textContent = "Loading player… if nothing appears, your network or browser may block embedded players — use \"Open original\" below.";
-    fallback.appendChild(msg);
-    var iframe = document.createElement("iframe");
-    iframe.setAttribute("src", embed);
-    iframe.setAttribute("title", title);
-    iframe.setAttribute("loading", "lazy");
-    iframe.setAttribute("referrerpolicy", "no-referrer");
-    iframe.setAttribute("sandbox", "allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox");
-    iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
-    iframe.setAttribute("allowfullscreen", "");
-    iframe.addEventListener("load", function(){ fallback.remove(); });
-    wrap.appendChild(fallback);
-    wrap.appendChild(iframe);
-    frameWrap.parentNode.replaceChild(wrap, frameWrap);
-    frameWrap = wrap;
-    lightbox.hidden = false;
-    lightbox.classList.add("open");
-    document.body.style.overflow = "hidden";
-    document.getElementById("lbClose").focus();
-  }
-  function closeLightbox(){
-    lightbox.classList.remove("open");
-    lightbox.hidden = true;
-    document.body.style.overflow = "";
-    frameWrap.innerHTML = "";
-    if(lastFocus && lastFocus.focus){ lastFocus.focus(); }
-  }
-  document.querySelectorAll("[data-close]").forEach(function(el){
-    el.addEventListener("click", closeLightbox);
-  });
-  document.getElementById("lbClose").addEventListener("click", closeLightbox);
-  document.addEventListener("keydown", function(e){
-    if(e.key === "Escape" && lightbox.classList.contains("open")) closeLightbox();
-  });
-
+  /* inline playback on the card — no sandbox/referrerpolicy: Google/YouTube
+     players fail with a config error inside sandboxed iframes */
   document.querySelectorAll(".work-card button.preview").forEach(function(btn){
     btn.addEventListener("click", function(){
       var card = btn.closest(".work-card");
-      var orig = card.querySelector(".out-link").getAttribute("href");
-      openLightbox(btn.getAttribute("data-embed"), btn.getAttribute("data-title"), btn.getAttribute("data-code"), orig);
+      if(!card || card.classList.contains("playing")) return;
+      card.classList.add("playing");
+      var frame = document.createElement("div");
+      frame.className = "frame-player";
+      var iframe = document.createElement("iframe");
+      iframe.setAttribute("src", btn.getAttribute("data-embed"));
+      iframe.setAttribute("title", btn.getAttribute("data-title"));
+      iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+      iframe.setAttribute("allowfullscreen", "");
+      frame.appendChild(iframe);
+      btn.replaceWith(frame);
     });
   });
 
