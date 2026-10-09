@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -157,6 +157,12 @@ section{padding:4.5rem 0}
 
 /* ---------- work grid ---------- */
 .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.work-categories{display:grid;gap:4.5rem}
+.work-category{padding:0;background:transparent!important;scroll-margin-top:6rem}
+.category-head{display:flex;align-items:end;justify-content:space-between;gap:1rem;margin:0 0 1.35rem;padding-bottom:.8rem;border-bottom:1px solid var(--border)}
+.category-title{font-family:"Anton",sans-serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:400;line-height:1;margin:0;text-transform:uppercase;letter-spacing:.01em}
+.category-title .index{color:var(--accent-2);font:700 .72rem/1 ui-monospace,"SF Mono",Menlo,monospace;letter-spacing:.12em;vertical-align:top;margin-right:.65rem}
+.category-count{font:700 .72rem/1 ui-monospace,"SF Mono",Menlo,monospace;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
 .work-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;
   transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;display:flex;flex-direction:column}
 .work-card:hover{border-color:color-mix(in srgb,var(--accent) 60%, var(--border));box-shadow:var(--shadow)}
@@ -440,6 +446,7 @@ footer{background:#080a09;color:#aeb4aa;border:0}
   .chip-a{left:0}.chip-b{right:0}.chip-c{left:2%}.float-chip{font-size:.57rem;max-width:11rem}
   .stats{transform:none;margin:0;width:100%}.stats-in{width:92vw}.stat{padding:1.2rem .55rem}.stat .l{font-size:.6rem;letter-spacing:.1em}
   .sec-head h2{font-size:clamp(3rem,17vw,5rem)}.filters{width:100%}.filter-btn{flex:1;padding:.55rem .4rem}
+  .work-categories{gap:3.4rem}.category-head{align-items:flex-start}.category-title{font-size:clamp(2.2rem,12vw,3.4rem)}
   .work-grid{display:grid;grid-template-columns:1fr}.work-card,.work-card:nth-child(1),.work-card:nth-child(2){grid-column:1}
   .t-item{padding-left:3.8rem}.timeline::before{left:18px}.t-item::before{width:36px;height:36px}.t-card{grid-template-columns:1fr;gap:.25rem}.t-card ul{grid-column:1;grid-row:auto;margin-top:.8rem}
   .skills-grid{grid-template-columns:1fr}.skills-grid .card{border-right:0;border-bottom:1px solid var(--border)}.skills-grid .card:last-child{border-bottom:0}.pipeline{justify-content:flex-start}.pipeline .arrow{display:none}
@@ -520,72 +527,17 @@ footer{background:#080a09;color:#aeb4aa;border:0}
     <div class="sec-head reveal">
       <div>
         <h2 class="display" id="work-h">Selected <span class="accent">work</span></h2>
-        <p>Hit play to watch each cut right here — or open the original link. 21 pieces, pulled straight from the timeline.</p>
-      </div>
-      <div class="filters" role="group" aria-label="Filter work">
-        <button class="filter-btn" data-filter="all" aria-pressed="true">All<span class="count">21</span></button>
-        <button class="filter-btn" data-filter="youtube" aria-pressed="false">YouTube<span class="count">4</span></button>
-        <button class="filter-btn" data-filter="edits" aria-pressed="false">Edits<span class="count">17</span></button>
+        <p>Explore 21 cuts across AI-led visuals, UGC, long-form stories and office reels. Hit play to watch here, or open the original.</p>
       </div>
     </div>
-    <div class="work-grid" id="workGrid">
-
-      <!-- YouTube -->
-      <article class="work-card reveal" data-kind="youtube">
-        <button class="preview" data-embed="https://www.youtube.com/embed/QzMFP92rhmw?autoplay=1&rel=0" data-title="YouTube video 01" data-code="YT-01" aria-label="Play YouTube video 01">
-          <span class="perfs" aria-hidden="true"></span><span class="code">YT-01</span><span class="badge">YouTube</span>
-          <img class="thumb" src="assets/thumbs/yt-01.jpg" alt="" loading="lazy" />
-          <span class="shade" aria-hidden="true"></span>
-          <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
-        </button>
-        <div class="work-body">
-          <h3>YouTube video 01</h3>
-          <div class="meta"><span class="type">YouTube · Video</span>
-            <a class="out-link" href="https://youtu.be/QzMFP92rhmw?si=wjYKslxx8j6Fl0qO" target="_blank" rel="noopener">Open on YouTube <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
-        </div>
-      </article>
-      <article class="work-card reveal" data-kind="youtube">
-        <button class="preview" data-embed="https://www.youtube.com/embed/Y4W0ttt2VEs?autoplay=1&rel=0" data-title="YouTube video 02" data-code="YT-02" aria-label="Play YouTube video 02">
-          <span class="perfs" aria-hidden="true"></span><span class="code">YT-02</span><span class="badge">YouTube</span>
-          <img class="thumb" src="assets/thumbs/yt-02.jpg" alt="" loading="lazy" />
-          <span class="shade" aria-hidden="true"></span>
-          <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
-        </button>
-        <div class="work-body">
-          <h3>YouTube video 02</h3>
-          <div class="meta"><span class="type">YouTube · Video</span>
-            <a class="out-link" href="https://youtu.be/Y4W0ttt2VEs?si=0EsrX2Wx-fGjc7P1" target="_blank" rel="noopener">Open on YouTube <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
-        </div>
-      </article>
-      <article class="work-card reveal" data-kind="youtube">
-        <button class="preview" data-embed="https://www.youtube.com/embed/jlj2ZyND7Kc?autoplay=1&rel=0" data-title="YouTube video 03" data-code="YT-03" aria-label="Play YouTube video 03">
-          <span class="perfs" aria-hidden="true"></span><span class="code">YT-03</span><span class="badge">YouTube</span>
-          <img class="thumb" src="assets/thumbs/yt-03.jpg" alt="" loading="lazy" />
-          <span class="shade" aria-hidden="true"></span>
-          <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
-        </button>
-        <div class="work-body">
-          <h3>YouTube video 03</h3>
-          <div class="meta"><span class="type">YouTube · Video</span>
-            <a class="out-link" href="https://youtu.be/jlj2ZyND7Kc?si=RfI7o7-A2zr_qpHB" target="_blank" rel="noopener">Open on YouTube <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
-        </div>
-      </article>
-      <article class="work-card reveal" data-kind="youtube">
-        <button class="preview" data-embed="https://www.youtube.com/embed/GmYjHEnr_6M?autoplay=1&rel=0" data-title="YouTube video 04" data-code="YT-04" aria-label="Play YouTube video 04">
-          <span class="perfs" aria-hidden="true"></span><span class="code">YT-04</span><span class="badge">YouTube</span>
-          <img class="thumb" src="assets/thumbs/yt-04.jpg" alt="" loading="lazy" />
-          <span class="shade" aria-hidden="true"></span>
-          <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
-        </button>
-        <div class="work-body">
-          <h3>YouTube video 04</h3>
-          <div class="meta"><span class="type">YouTube · Video</span>
-            <a class="out-link" href="https://youtu.be/GmYjHEnr_6M?si=Dq5u84t6-1H2sZBU" target="_blank" rel="noopener">Open on YouTube <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
-        </div>
-      </article>
-
-      <!-- Edits on Drive / Vids -->
-      <article class="work-card reveal" data-kind="edits">
+    <div class="work-categories">
+    <section class="work-category" id="work-ai" aria-labelledby="work-ai-h">
+      <div class="category-head">
+        <h3 class="category-title" id="work-ai-h"><span class="index">01</span>AI Videos</h3>
+        <span class="category-count">07 projects</span>
+      </div>
+      <div class="work-grid">
+      <article class="work-card reveal" data-kind="ai">
         <button class="preview" data-embed="https://drive.google.com/file/d/13xC7_NZZ6bt8xTs6qYQPGpIsM3akxEAB/preview" data-title="Bali 2.0" data-code="E-01" aria-label="Play Bali 2.0">
           <span class="perfs" aria-hidden="true"></span><span class="code">E-01</span><span class="badge">Drive</span>
           <img class="thumb" src="assets/thumbs/e-01.jpg" alt="" loading="lazy" />
@@ -598,18 +550,7 @@ footer{background:#080a09;color:#aeb4aa;border:0}
             <a class="out-link" href="https://drive.google.com/file/d/13xC7_NZZ6bt8xTs6qYQPGpIsM3akxEAB/view?usp=sharing" target="_blank" rel="noopener">Open original <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
         </div>
       </article>
-      <article class="work-card reveal" data-kind="edits">
-        <a class="preview" href="https://drive.google.com/file/d/16uZ31tw8q2mAgtTACxJYbYqbiaoxat0-/view?usp=sharing" target="_blank" rel="noopener" aria-label="Open Ankur 2 on Drive — download to watch, Google can't preview this file">
-          <span class="perfs" aria-hidden="true"></span><span class="code">E-02</span><span class="badge">Drive</span>
-          <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5M4 21h16"/></svg></span><span class="open-hint">Download to watch · Opens new tab</span></span>
-        </a>
-        <div class="work-body">
-          <h3>Ankur 2</h3>
-          <div class="meta"><span class="type">Video · download only</span>
-            <a class="out-link" href="https://drive.google.com/file/d/16uZ31tw8q2mAgtTACxJYbYqbiaoxat0-/view?usp=sharing" target="_blank" rel="noopener">Open original <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
-        </div>
-      </article>
-      <article class="work-card reveal" data-kind="edits">
+      <article class="work-card reveal" data-kind="ai">
         <button class="preview" data-embed="https://drive.google.com/file/d/18OJncm1DWLGEZD9WKMM9ufNqh4NgFkRf/preview" data-title="Catalyst T" data-code="E-03" aria-label="Play Catalyst T">
           <span class="perfs" aria-hidden="true"></span><span class="code">E-03</span><span class="badge">Drive</span>
           <img class="thumb" src="assets/thumbs/e-03.jpg" alt="" loading="lazy" />
@@ -622,20 +563,7 @@ footer{background:#080a09;color:#aeb4aa;border:0}
             <a class="out-link" href="https://drive.google.com/file/d/18OJncm1DWLGEZD9WKMM9ufNqh4NgFkRf/view?usp=sharing" target="_blank" rel="noopener">Open original <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
         </div>
       </article>
-      <article class="work-card reveal" data-kind="edits">
-        <button class="preview" data-embed="https://drive.google.com/file/d/1InZxu2KH0WdUKhPi34BOsyhi65SrL0sK/preview" data-title="Untitled edit E-04" data-code="E-04" aria-label="Play untitled edit 4">
-          <span class="perfs" aria-hidden="true"></span><span class="code">E-04</span><span class="badge">Drive</span>
-          <img class="thumb" src="assets/thumbs/e-04.jpg" alt="" loading="lazy" />
-          <span class="shade" aria-hidden="true"></span>
-          <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
-        </button>
-        <div class="work-body">
-          <h3>Untitled edit</h3>
-          <div class="meta"><span class="type">Video file</span>
-            <a class="out-link" href="https://drive.google.com/file/d/1InZxu2KH0WdUKhPi34BOsyhi65SrL0sK/view?usp=sharing" target="_blank" rel="noopener">Open original <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
-        </div>
-      </article>
-      <article class="work-card reveal" data-kind="edits">
+      <article class="work-card reveal" data-kind="ai">
         <button class="preview" data-embed="https://drive.google.com/file/d/1TF71zcMwaY8GUU2UMdOldNwLBGuAEp9n/preview" data-title="Day 1–6" data-code="E-05" aria-label="Play Day 1–6">
           <span class="perfs" aria-hidden="true"></span><span class="code">E-05</span><span class="badge">Drive</span>
           <img class="thumb" src="assets/thumbs/e-05.jpg" alt="" loading="lazy" />
@@ -648,7 +576,7 @@ footer{background:#080a09;color:#aeb4aa;border:0}
             <a class="out-link" href="https://drive.google.com/file/d/1TF71zcMwaY8GUU2UMdOldNwLBGuAEp9n/view?usp=sharing" target="_blank" rel="noopener">Open original <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
         </div>
       </article>
-      <article class="work-card reveal" data-kind="edits">
+      <article class="work-card reveal" data-kind="ai">
         <button class="preview" data-embed="https://drive.google.com/file/d/1VbvU9G7Ut0JGXi6Yyiws82kPSqOxm-k3/preview" data-title="Untitled edit E-06" data-code="E-06" aria-label="Play untitled edit 6">
           <span class="perfs" aria-hidden="true"></span><span class="code">E-06</span><span class="badge">Drive</span>
           <img class="thumb" src="assets/thumbs/e-06.jpg" alt="" loading="lazy" />
@@ -661,20 +589,7 @@ footer{background:#080a09;color:#aeb4aa;border:0}
             <a class="out-link" href="https://drive.google.com/file/d/1VbvU9G7Ut0JGXi6Yyiws82kPSqOxm-k3/view?usp=sharing" target="_blank" rel="noopener">Open original <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
         </div>
       </article>
-      <article class="work-card reveal" data-kind="edits">
-        <button class="preview" data-embed="https://drive.google.com/file/d/1cjgY1dryxNcIryUQbi8Fd-1HTCulFd9_/preview" data-title="Untitled edit E-07" data-code="E-07" aria-label="Play untitled edit 7">
-          <span class="perfs" aria-hidden="true"></span><span class="code">E-07</span><span class="badge">Drive</span>
-          <img class="thumb" src="assets/thumbs/e-07.jpg" alt="" loading="lazy" />
-          <span class="shade" aria-hidden="true"></span>
-          <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
-        </button>
-        <div class="work-body">
-          <h3>Untitled edit</h3>
-          <div class="meta"><span class="type">Video file</span>
-            <a class="out-link" href="https://drive.google.com/file/d/1cjgY1dryxNcIryUQbi8Fd-1HTCulFd9_/view?usp=sharing" target="_blank" rel="noopener">Open original <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
-        </div>
-      </article>
-      <article class="work-card reveal" data-kind="edits">
+      <article class="work-card reveal" data-kind="ai">
         <button class="preview" data-embed="https://drive.google.com/file/d/1gGjTvuSanAOqmu9W0xJvYyDOTdUEldse/preview" data-title="Bali" data-code="E-08" aria-label="Play Bali">
           <span class="perfs" aria-hidden="true"></span><span class="code">E-08</span><span class="badge">Drive</span>
           <img class="thumb" src="assets/thumbs/e-08.jpg" alt="" loading="lazy" />
@@ -687,7 +602,7 @@ footer{background:#080a09;color:#aeb4aa;border:0}
             <a class="out-link" href="https://drive.google.com/file/d/1gGjTvuSanAOqmu9W0xJvYyDOTdUEldse/view?usp=sharing" target="_blank" rel="noopener">Open original <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
         </div>
       </article>
-      <article class="work-card reveal" data-kind="edits">
+      <article class="work-card reveal" data-kind="ai">
         <button class="preview" data-embed="https://drive.google.com/file/d/1mxtau6mhxER5LhZ__inH-JzF3rsmZypp/preview" data-title="Coffee" data-code="E-09" aria-label="Play Coffee">
           <span class="perfs" aria-hidden="true"></span><span class="code">E-09</span><span class="badge">Drive</span>
           <img class="thumb" src="assets/thumbs/e-09.jpg" alt="" loading="lazy" />
@@ -700,20 +615,7 @@ footer{background:#080a09;color:#aeb4aa;border:0}
             <a class="out-link" href="https://drive.google.com/file/d/1mxtau6mhxER5LhZ__inH-JzF3rsmZypp/view?usp=sharing" target="_blank" rel="noopener">Open original <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
         </div>
       </article>
-      <article class="work-card reveal" data-kind="edits">
-        <button class="preview" data-embed="https://drive.google.com/file/d/1myEn9BWUfOEbQ0mBH5Gxwhm6UNmtOKWT/preview" data-title="Hair Care" data-code="E-10" aria-label="Play Hair Care">
-          <span class="perfs" aria-hidden="true"></span><span class="code">E-10</span><span class="badge">Drive</span>
-          <img class="thumb" src="assets/thumbs/e-10.jpg" alt="" loading="lazy" />
-          <span class="shade" aria-hidden="true"></span>
-          <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
-        </button>
-        <div class="work-body">
-          <h3>Hair Care</h3>
-          <div class="meta"><span class="type">Video · MP4</span>
-            <a class="out-link" href="https://drive.google.com/file/d/1myEn9BWUfOEbQ0mBH5Gxwhm6UNmtOKWT/view?usp=sharing" target="_blank" rel="noopener">Open original <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
-        </div>
-      </article>
-      <article class="work-card reveal" data-kind="edits">
+      <article class="work-card reveal" data-kind="ai">
         <button class="preview" data-embed="https://docs.google.com/videos/d/1nJn9libyAv6tKKDvMtsK4s9WQ2tp1zL3sOaL26cBr1o/play?usp=sharing" data-title="Final Work" data-code="E-11" aria-label="Play Final Work">
           <span class="perfs" aria-hidden="true"></span><span class="code">E-11</span><span class="badge">Google Vids</span>
           <img class="thumb" src="assets/thumbs/e-11.jpg" alt="" loading="lazy" />
@@ -726,7 +628,133 @@ footer{background:#080a09;color:#aeb4aa;border:0}
             <a class="out-link" href="https://docs.google.com/videos/d/1nJn9libyAv6tKKDvMtsK4s9WQ2tp1zL3sOaL26cBr1o/play?usp=sharing" target="_blank" rel="noopener">Open original <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
         </div>
       </article>
-      <article class="work-card reveal" data-kind="edits">
+      </div>
+    </section>
+    <section class="work-category" id="work-ugc" aria-labelledby="work-ugc-h">
+      <div class="category-head">
+        <h3 class="category-title" id="work-ugc-h"><span class="index">02</span>UGC Videos</h3>
+        <span class="category-count">03 projects</span>
+      </div>
+      <div class="work-grid">
+      <article class="work-card reveal" data-kind="ugc">
+        <a class="preview" href="https://drive.google.com/file/d/16uZ31tw8q2mAgtTACxJYbYqbiaoxat0-/view?usp=sharing" target="_blank" rel="noopener" aria-label="Open Ankur 2 on Drive — download to watch, Google can't preview this file">
+          <span class="perfs" aria-hidden="true"></span><span class="code">E-02</span><span class="badge">Drive</span>
+          <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5M4 21h16"/></svg></span><span class="open-hint">Download to watch · Opens new tab</span></span>
+        </a>
+        <div class="work-body">
+          <h3>Ankur 2</h3>
+          <div class="meta"><span class="type">Video · download only</span>
+            <a class="out-link" href="https://drive.google.com/file/d/16uZ31tw8q2mAgtTACxJYbYqbiaoxat0-/view?usp=sharing" target="_blank" rel="noopener">Open original <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
+        </div>
+      </article>
+      <article class="work-card reveal" data-kind="ugc">
+        <button class="preview" data-embed="https://drive.google.com/file/d/1InZxu2KH0WdUKhPi34BOsyhi65SrL0sK/preview" data-title="Untitled edit E-04" data-code="E-04" aria-label="Play untitled edit 4">
+          <span class="perfs" aria-hidden="true"></span><span class="code">E-04</span><span class="badge">Drive</span>
+          <img class="thumb" src="assets/thumbs/e-04.jpg" alt="" loading="lazy" />
+          <span class="shade" aria-hidden="true"></span>
+          <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
+        </button>
+        <div class="work-body">
+          <h3>Untitled edit</h3>
+          <div class="meta"><span class="type">Video file</span>
+            <a class="out-link" href="https://drive.google.com/file/d/1InZxu2KH0WdUKhPi34BOsyhi65SrL0sK/view?usp=sharing" target="_blank" rel="noopener">Open original <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
+        </div>
+      </article>
+      <article class="work-card reveal" data-kind="ugc">
+        <button class="preview" data-embed="https://drive.google.com/file/d/1myEn9BWUfOEbQ0mBH5Gxwhm6UNmtOKWT/preview" data-title="Hair Care" data-code="E-10" aria-label="Play Hair Care">
+          <span class="perfs" aria-hidden="true"></span><span class="code">E-10</span><span class="badge">Drive</span>
+          <img class="thumb" src="assets/thumbs/e-10.jpg" alt="" loading="lazy" />
+          <span class="shade" aria-hidden="true"></span>
+          <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
+        </button>
+        <div class="work-body">
+          <h3>Hair Care</h3>
+          <div class="meta"><span class="type">Video · MP4</span>
+            <a class="out-link" href="https://drive.google.com/file/d/1myEn9BWUfOEbQ0mBH5Gxwhm6UNmtOKWT/view?usp=sharing" target="_blank" rel="noopener">Open original <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
+        </div>
+      </article>
+      </div>
+    </section>
+    <section class="work-category" id="work-long" aria-labelledby="work-long-h">
+      <div class="category-head">
+        <h3 class="category-title" id="work-long-h"><span class="index">03</span>Long Videos</h3>
+        <span class="category-count">04 projects</span>
+      </div>
+      <div class="work-grid">
+      <article class="work-card reveal" data-kind="long">
+        <button class="preview" data-embed="https://www.youtube.com/embed/QzMFP92rhmw?autoplay=1&rel=0" data-title="YouTube video 01" data-code="YT-01" aria-label="Play YouTube video 01">
+          <span class="perfs" aria-hidden="true"></span><span class="code">YT-01</span><span class="badge">YouTube</span>
+          <img class="thumb" src="assets/thumbs/yt-01.jpg" alt="" loading="lazy" />
+          <span class="shade" aria-hidden="true"></span>
+          <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
+        </button>
+        <div class="work-body">
+          <h3>YouTube video 01</h3>
+          <div class="meta"><span class="type">YouTube · Video</span>
+            <a class="out-link" href="https://youtu.be/QzMFP92rhmw?si=wjYKslxx8j6Fl0qO" target="_blank" rel="noopener">Open on YouTube <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
+        </div>
+      </article>
+      <article class="work-card reveal" data-kind="long">
+        <button class="preview" data-embed="https://www.youtube.com/embed/Y4W0ttt2VEs?autoplay=1&rel=0" data-title="YouTube video 02" data-code="YT-02" aria-label="Play YouTube video 02">
+          <span class="perfs" aria-hidden="true"></span><span class="code">YT-02</span><span class="badge">YouTube</span>
+          <img class="thumb" src="assets/thumbs/yt-02.jpg" alt="" loading="lazy" />
+          <span class="shade" aria-hidden="true"></span>
+          <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
+        </button>
+        <div class="work-body">
+          <h3>YouTube video 02</h3>
+          <div class="meta"><span class="type">YouTube · Video</span>
+            <a class="out-link" href="https://youtu.be/Y4W0ttt2VEs?si=0EsrX2Wx-fGjc7P1" target="_blank" rel="noopener">Open on YouTube <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
+        </div>
+      </article>
+      <article class="work-card reveal" data-kind="long">
+        <button class="preview" data-embed="https://www.youtube.com/embed/jlj2ZyND7Kc?autoplay=1&rel=0" data-title="YouTube video 03" data-code="YT-03" aria-label="Play YouTube video 03">
+          <span class="perfs" aria-hidden="true"></span><span class="code">YT-03</span><span class="badge">YouTube</span>
+          <img class="thumb" src="assets/thumbs/yt-03.jpg" alt="" loading="lazy" />
+          <span class="shade" aria-hidden="true"></span>
+          <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
+        </button>
+        <div class="work-body">
+          <h3>YouTube video 03</h3>
+          <div class="meta"><span class="type">YouTube · Video</span>
+            <a class="out-link" href="https://youtu.be/jlj2ZyND7Kc?si=RfI7o7-A2zr_qpHB" target="_blank" rel="noopener">Open on YouTube <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
+        </div>
+      </article>
+      <article class="work-card reveal" data-kind="long">
+        <button class="preview" data-embed="https://www.youtube.com/embed/GmYjHEnr_6M?autoplay=1&rel=0" data-title="YouTube video 04" data-code="YT-04" aria-label="Play YouTube video 04">
+          <span class="perfs" aria-hidden="true"></span><span class="code">YT-04</span><span class="badge">YouTube</span>
+          <img class="thumb" src="assets/thumbs/yt-04.jpg" alt="" loading="lazy" />
+          <span class="shade" aria-hidden="true"></span>
+          <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
+        </button>
+        <div class="work-body">
+          <h3>YouTube video 04</h3>
+          <div class="meta"><span class="type">YouTube · Video</span>
+            <a class="out-link" href="https://youtu.be/GmYjHEnr_6M?si=Dq5u84t6-1H2sZBU" target="_blank" rel="noopener">Open on YouTube <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
+        </div>
+      </article>
+      </div>
+    </section>
+    <section class="work-category" id="work-office" aria-labelledby="work-office-h">
+      <div class="category-head">
+        <h3 class="category-title" id="work-office-h"><span class="index">04</span>Office Reels</h3>
+        <span class="category-count">07 projects</span>
+      </div>
+      <div class="work-grid">
+      <article class="work-card reveal" data-kind="office">
+        <button class="preview" data-embed="https://drive.google.com/file/d/1cjgY1dryxNcIryUQbi8Fd-1HTCulFd9_/preview" data-title="Untitled edit E-07" data-code="E-07" aria-label="Play untitled edit 7">
+          <span class="perfs" aria-hidden="true"></span><span class="code">E-07</span><span class="badge">Drive</span>
+          <img class="thumb" src="assets/thumbs/e-07.jpg" alt="" loading="lazy" />
+          <span class="shade" aria-hidden="true"></span>
+          <span><span class="play-ring" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5-11-6.5z"/></svg></span><span class="open-hint">Play</span></span>
+        </button>
+        <div class="work-body">
+          <h3>Untitled edit</h3>
+          <div class="meta"><span class="type">Video file</span>
+            <a class="out-link" href="https://drive.google.com/file/d/1cjgY1dryxNcIryUQbi8Fd-1HTCulFd9_/view?usp=sharing" target="_blank" rel="noopener">Open original <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
+        </div>
+      </article>
+      <article class="work-card reveal" data-kind="office">
         <button class="preview" data-embed="https://drive.google.com/file/d/1opCD6qlizlcZTbMFHZsSxDPE03fqmItE/preview" data-title="Connection" data-code="E-12" aria-label="Play Connection">
           <span class="perfs" aria-hidden="true"></span><span class="code">E-12</span><span class="badge">Drive</span>
           <img class="thumb" src="assets/thumbs/e-12.jpg" alt="" loading="lazy" />
@@ -739,7 +767,7 @@ footer{background:#080a09;color:#aeb4aa;border:0}
             <a class="out-link" href="https://drive.google.com/file/d/1opCD6qlizlcZTbMFHZsSxDPE03fqmItE/view?usp=sharing" target="_blank" rel="noopener">Open original <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
         </div>
       </article>
-      <article class="work-card reveal" data-kind="edits">
+      <article class="work-card reveal" data-kind="office">
         <button class="preview" data-embed="https://drive.google.com/file/d/1jY_qZ9c0-Yb14_EcRaGDE3QLpthkAuPX/preview" data-title="Co Worker" data-code="E-13" aria-label="Play Co Worker">
           <span class="perfs" aria-hidden="true"></span><span class="code">E-13</span><span class="badge">Drive</span>
           <img class="thumb" src="assets/thumbs/e-13.jpg" alt="" loading="lazy" />
@@ -752,7 +780,7 @@ footer{background:#080a09;color:#aeb4aa;border:0}
             <a class="out-link" href="https://drive.google.com/file/d/1jY_qZ9c0-Yb14_EcRaGDE3QLpthkAuPX/view?usp=drive_link" target="_blank" rel="noopener">Open original <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
         </div>
       </article>
-      <article class="work-card reveal" data-kind="edits">
+      <article class="work-card reveal" data-kind="office">
         <button class="preview" data-embed="https://drive.google.com/file/d/1CBTSuyIV8EaiUtG_I9k36CNY-6AAyxP4/preview" data-title="FCE 3" data-code="E-14" aria-label="Play FCE 3">
           <span class="perfs" aria-hidden="true"></span><span class="code">E-14</span><span class="badge">Drive</span>
           <img class="thumb" src="assets/thumbs/e-14.jpg" alt="" loading="lazy" />
@@ -765,7 +793,7 @@ footer{background:#080a09;color:#aeb4aa;border:0}
             <a class="out-link" href="https://drive.google.com/file/d/1CBTSuyIV8EaiUtG_I9k36CNY-6AAyxP4/view?usp=drive_link" target="_blank" rel="noopener">Open original <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
         </div>
       </article>
-      <article class="work-card reveal" data-kind="edits">
+      <article class="work-card reveal" data-kind="office">
         <button class="preview" data-embed="https://drive.google.com/file/d/1gOE8LOSalsdYopMS3Ev2xkGhopqhLCmo/preview" data-title="Final" data-code="E-15" aria-label="Play Final">
           <span class="perfs" aria-hidden="true"></span><span class="code">E-15</span><span class="badge">Drive</span>
           <img class="thumb" src="assets/thumbs/e-15.jpg" alt="" loading="lazy" />
@@ -778,7 +806,7 @@ footer{background:#080a09;color:#aeb4aa;border:0}
             <a class="out-link" href="https://drive.google.com/file/d/1gOE8LOSalsdYopMS3Ev2xkGhopqhLCmo/view?usp=drive_link" target="_blank" rel="noopener">Open original <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
         </div>
       </article>
-      <article class="work-card reveal" data-kind="edits">
+      <article class="work-card reveal" data-kind="office">
         <button class="preview" data-embed="https://drive.google.com/file/d/1nEcSe2DjjHscQb_GacSsmK9SV2h-fYVA/preview" data-title="OFC" data-code="E-16" aria-label="Play OFC">
           <span class="perfs" aria-hidden="true"></span><span class="code">E-16</span><span class="badge">Drive</span>
           <img class="thumb" src="assets/thumbs/e-16.jpg" alt="" loading="lazy" />
@@ -791,7 +819,7 @@ footer{background:#080a09;color:#aeb4aa;border:0}
             <a class="out-link" href="https://drive.google.com/file/d/1nEcSe2DjjHscQb_GacSsmK9SV2h-fYVA/view?usp=drive_link" target="_blank" rel="noopener">Open original <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
         </div>
       </article>
-      <article class="work-card reveal" data-kind="edits">
+      <article class="work-card reveal" data-kind="office">
         <button class="preview" data-embed="https://drive.google.com/file/d/170ndwtkKPwmQcoXEVKWy_Z2R9JjL233S/preview" data-title="Sequence 01_3" data-code="E-17" aria-label="Play Sequence 01_3">
           <span class="perfs" aria-hidden="true"></span><span class="code">E-17</span><span class="badge">Drive</span>
           <img class="thumb" src="assets/thumbs/e-17.jpg" alt="" loading="lazy" />
@@ -804,7 +832,8 @@ footer{background:#080a09;color:#aeb4aa;border:0}
             <a class="out-link" href="https://drive.google.com/file/d/170ndwtkKPwmQcoXEVKWy_Z2R9JjL233S/view?usp=drive_link" target="_blank" rel="noopener">Open original <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
         </div>
       </article>
-
+      </div>
+    </section>
     </div>
   </div>
 </section>
@@ -992,21 +1021,6 @@ footer{background:#080a09;color:#aeb4aa;border:0}
       if(e.target.closest("a")){ navLinks.classList.remove("open"); menuBtn.setAttribute("aria-expanded","false"); }
     });
   }
-
-  /* filters */
-  var filterBtns = Array.prototype.slice.call(document.querySelectorAll(".filter-btn"));
-  var cards = Array.prototype.slice.call(document.querySelectorAll(".work-card"));
-  filterBtns.forEach(function(btn){
-    btn.addEventListener("click", function(){
-      filterBtns.forEach(function(b){ b.setAttribute("aria-pressed","false"); });
-      btn.setAttribute("aria-pressed","true");
-      var f = btn.getAttribute("data-filter");
-      cards.forEach(function(card){
-        var show = f === "all" || card.getAttribute("data-kind") === f;
-        card.hidden = !show;
-      });
-    });
-  });
 
   /* inline playback on the card — no sandbox/referrerpolicy: Google/YouTube
      players fail with a config error inside sandboxed iframes */
