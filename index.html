@@ -1,132 +1,160 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 <meta name="color-scheme" content="dark light" />
-<meta name="description" content="Arpit Raj — Video Editor in Noida. AI video, UGC, long-form content and office reels, edited with newsroom pace and cinematic precision." />
+<meta name="description" content="Arpit Raj — Video Editor in Noida creating cinematic cuts, viral short-form and AI-powered visual stories." />
 <title>Arpit Raj — Video Editor</title>
-<link rel="stylesheet" href="assets/css/site.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/landing.css" />
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script defer src="assets/js/site.js"></script>
+<script defer src="assets/js/landing.js"></script>
 </head>
 <body>
-<nav class="site-nav" aria-label="Primary navigation">
-  <div class="shell nav-row">
-    <a class="nav-context" href="#top"><strong>Portfolio / 2026</strong>Video Editor · Noida</a>
-    <button class="menu-btn" type="button" data-menu aria-expanded="false" aria-controls="nav-links">Menu</button>
-    <div class="nav-links" id="nav-links" data-nav-links>
-      <a href="#work">Work</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
-    </div>
-    <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch colour theme"></button>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="nav" aria-label="Primary navigation">
+  <a class="brand" href="#top">ARPIT RAJ <sup>©</sup></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+  <div class="nav-links" id="nav-links">
+    <a href="#about">About</a><a href="#work">Work</a><a href="#services">Services</a><a href="#contact">Contact</a>
   </div>
+  <a class="pill" href="#contact">Contact me <span aria-hidden="true">↗</span></a>
 </nav>
 
 <header class="hero" id="top">
-  <div class="shell hero-grid">
-    <div class="hero-copy">
-      <p class="eyebrow">Available for creative collaborations</p>
-      <h1 class="display"><span>Arpit Raj</span><i>Video Editor</i></h1>
-      <p class="intro">A Noida-based video editor shaping <strong>AI-led visuals, UGC, long-form stories and social-first reels</strong> with newsroom speed and cinematic attention to rhythm.</p>
-      <div class="hero-actions">
-        <a class="button primary" href="#work"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Explore the work</a>
-        <a class="button secondary" href="assets/Arpit_Raj_Resume.pdf" download="Arpit_Raj_Resume.pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>Download résumé</a>
-      </div>
-    </div>
-    <div class="showreel" aria-label="Featured showreel">
-      <a class="showreel-frame showreel-launch" href="https://drive.google.com/file/d/12kKT3ANFlu57QVR_LIeYpSMD-G6KlcSq/view?usp=drive_link" target="_blank" rel="noopener" aria-label="Play AI-03 Catalyst Promo in Google Drive">
-        <img src="assets/thumbs/ai-03.jpg" alt="Frame from AI-03 Catalyst Promo" />
-        <span class="showreel-shade" aria-hidden="true"></span>
-        <span class="showreel-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-        <span class="showreel-play-label">Play AI-03</span>
-      </a>
-      <div class="showreel-caption"><strong>Catalyst Promo</strong><span>Featured showreel · AI video</span></div>
-    </div>
+  <div class="hero-orbit orbit-a" aria-hidden="true"></div>
+  <div class="hero-orbit orbit-b" aria-hidden="true"></div>
+  <div class="shape sphere hero-sphere" data-float aria-hidden="true"></div>
+  <div class="shape ring hero-ring" data-float aria-hidden="true"></div>
+  <div class="shape triangle hero-triangle" data-float aria-hidden="true"></div>
+  <div class="hero-heading" aria-label="Hi, I'm Arpit Raj">
+    <span class="hero-hi">HI, I’M</span>
+    <span class="hero-name">ARPIT RAJ</span>
   </div>
-  <span class="hero-index" aria-hidden="true">00:00:01:00</span>
+  <div class="avatar-wrap" data-avatar>
+    <span class="avatar-glow" aria-hidden="true"></span>
+    <img src="assets/avatar.webp" alt="3D portrait of Arpit Raj wearing headphones" />
+    <span class="badge">Video Editor</span>
+  </div>
+  <div class="hero-bottom">
+    <p>A video editor obsessed with cinematic cuts, viral short-form &amp; AI-powered storytelling.</p>
+    <a class="scroll-cue" href="#work">See the cuts <span aria-hidden="true">↓</span></a>
+  </div>
 </header>
 
-<section class="stats-strip" aria-label="Portfolio facts">
-  <div class="shell stats-grid">
-    <div class="stat"><strong>2+</strong><span>Years post-production experience</span></div>
-    <div class="stat"><strong>100+</strong><span>YouTube videos &amp; Shorts</span></div>
-    <div class="stat"><strong>3</strong><span>Newsroom &amp; brand teams</span></div>
-    <div class="stat"><strong>27</strong><span>Portfolio cuts</span></div>
+<section class="stats" aria-label="Portfolio facts">
+  <div><strong>2+</strong><span>Years experience</span></div>
+  <div><strong>100+</strong><span>Videos &amp; Shorts</span></div>
+  <div><strong>3</strong><span>Newsroom &amp; brand teams</span></div>
+  <div><strong>27</strong><span>Portfolio cuts</span></div>
+</section>
+
+<div class="marquee" aria-label="Teams Arpit has worked with">
+  <div class="marquee-track" aria-hidden="true"></div>
+</div>
+
+<main id="main">
+<section class="work section-dark" id="work" aria-labelledby="work-title">
+  <div class="section-heading reveal">
+    <p class="kicker">Selected work / 2024—2026</p>
+    <h2 id="work-title">Cuts that <em>perform.</em></h2>
+    <p class="section-note">Fast, precise and built for the platform. A selection from AI, UGC, long-form and social work.</p>
+  </div>
+  <div class="work-grid stagger">
+    <a class="work-card wide" href="work/ai-videos/">
+      <img src="assets/thumbs/ai-03.jpg" alt="Catalyst Promo AI video frame" />
+      <span class="work-index">01 / AI VIDEO</span><strong>Catalyst Promo</strong><i>View project category ↗</i>
+    </a>
+    <a class="work-card portrait" href="work/ugc-videos/">
+      <img src="assets/thumbs/e-04.jpg" alt="Direct-to-camera UGC edit frame" />
+      <span class="work-index">02 / UGC</span><strong>Social-first UGC</strong><i>View project category ↗</i>
+    </a>
+    <a class="work-card portrait" href="work/office-reels/">
+      <img src="assets/thumbs/e-13.jpg" alt="Co-worker office reel frame" />
+      <span class="work-index">03 / OFFICE REEL</span><strong>Co-worker</strong><i>View project category ↗</i>
+    </a>
+    <a class="work-card wide" href="work/long-videos/">
+      <img src="assets/thumbs/yt-02.jpg" alt="Long-form YouTube edit frame" />
+      <span class="work-index">04 / LONG-FORM</span><strong>YouTube story edit</strong><i>View project category ↗</i>
+    </a>
   </div>
 </section>
 
-<main>
-<section class="section" id="about" aria-labelledby="about-title">
-  <div class="shell intro-grid">
-    <div data-reveal>
-      <p class="eyebrow">The edit behind the frame</p>
-      <h2 class="display" id="about-title">Story first.<br />Cut with intent.</h2>
+<section class="about section-dark" id="about" aria-labelledby="about-title">
+  <div class="about-word" aria-hidden="true">ABOUT ME</div>
+  <div class="about-layout">
+    <div class="about-art reveal" aria-hidden="true">
+      <div class="shape sphere about-sphere" data-float></div>
+      <div class="shape ring about-ring" data-float></div>
+      <div class="shape triangle about-triangle" data-float></div>
+      <span class="film-frame"></span>
     </div>
-    <div class="intro-copy" data-reveal>
-      <p>Two years across newsrooms and brands taught me to move fast without losing the story. I work across <strong>short-form, anchor-led, meme-driven and AI-generated content</strong>, owning the edit from first assembly through colour, sound and delivery.</p>
-      <div class="skills-list" id="skills" aria-label="Key skills">
-        <span class="skill hot">Adobe Premiere Pro</span><span class="skill hot">Photoshop</span><span class="skill">Short-form editing</span><span class="skill">AI video</span><span class="skill">Colour grading</span><span class="skill">Audio mixing</span><span class="skill">Captions</span><span class="skill">Visual storytelling</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section alt" id="work" aria-labelledby="work-title">
-  <div class="shell">
-    <div class="section-head" data-reveal>
-      <div><p class="eyebrow">Selected work / Twenty-seven projects</p><h2 class="display" id="work-title">Four ways I shape a story.</h2></div>
-      <p>Choose a category to view every project on its own dedicated page. Each collection keeps the original video link and opens playable work in a focused viewer.</p>
-    </div>
-    <div class="category-grid" data-stagger>
-      <a class="category-card" href="work/ai-videos/" data-tilt>
-        <img src="assets/thumbs/ai-03.jpg" alt="Frame from the Catalyst Promo AI video" loading="lazy" />
-        <div class="category-card-content"><span class="category-number">01 / 14 PROJECTS</span><h3>AI Videos</h3><div class="category-meta"><span>Generated visuals · branded edits</span><span class="category-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6l6 6-6 6"/></svg></span></div></div>
-      </a>
-      <a class="category-card" href="work/ugc-videos/" data-tilt>
-        <img src="assets/thumbs/e-04.jpg" alt="Frame from an UGC portfolio edit" loading="lazy" />
-        <div class="category-card-content"><span class="category-number">02 / 02 PROJECTS</span><h3>UGC Videos</h3><div class="category-meta"><span>Direct-to-camera · social edits</span><span class="category-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6l6 6-6 6"/></svg></span></div></div>
-      </a>
-      <a class="category-card" href="work/long-videos/" data-tilt>
-        <img src="assets/thumbs/yt-02.jpg" alt="Frame from a long-form YouTube video" loading="lazy" />
-        <div class="category-card-content"><span class="category-number">03 / 06 PROJECTS</span><h3>Long Videos</h3><div class="category-meta"><span>YouTube · Instagram · long-form pacing</span><span class="category-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6l6 6-6 6"/></svg></span></div></div>
-      </a>
-      <a class="category-card" href="work/office-reels/" data-tilt>
-        <img src="assets/thumbs/e-13.jpg" alt="Frame from the Co Worker office reel" loading="lazy" />
-        <div class="category-card-content"><span class="category-number">04 / 05 PROJECTS</span><h3>Office Reels</h3><div class="category-meta"><span>Workplace humour · short-form</span><span class="category-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6l6 6-6 6"/></svg></span></div></div>
-      </a>
+    <div class="about-copy reveal">
+      <p class="kicker">The person behind the timeline</p>
+      <h2 id="about-title">Rhythm, story,<br />then everything else.</h2>
+      <p>I’m a Noida-based video editor with two years of post-production experience. I cut 100+ videos and Shorts at WE YUVA, built explainers at Bharat Update, shaped short-form and AI-led content at Mavilach Group, and now work as a Video Editor at InstaAstro.</p>
+      <a class="pill orange" href="#contact">Contact me <span aria-hidden="true">↗</span></a>
     </div>
   </div>
 </section>
 
-<section class="section" id="experience" aria-labelledby="experience-title">
-  <div class="shell">
-    <div class="section-head" data-reveal>
-      <div><p class="eyebrow">Experience / selected</p><h2 class="display" id="experience-title">Built in the edit.</h2></div>
-      <p>Newsroom discipline, brand agility and an instinct for social-first pacing.</p>
+<section class="services section-light" id="services" aria-labelledby="services-title">
+  <div class="section-heading reveal">
+    <p class="kicker dark-kicker">What I bring to the edit</p>
+    <h2 id="services-title">Services</h2>
+  </div>
+  <ol class="service-list stagger">
+    <li><span>01</span><h3>Short-Form &amp; Reels</h3><p>Fast hooks, tight pacing and platform-ready edits built to hold attention.</p></li>
+    <li><span>02</span><h3>News Packages</h3><p>Clear, deadline-ready packages with purposeful visuals, audio and structure.</p></li>
+    <li><span>03</span><h3>AI-Generated Video</h3><p>AI-led visual sequences shaped into coherent, polished narrative edits.</p></li>
+    <li><span>04</span><h3>YouTube &amp; Long-Form</h3><p>Story-led pacing, clean transitions and sustained momentum across longer cuts.</p></li>
+    <li><span>05</span><h3>Color &amp; Finishing</h3><p>Colour balance, sound polish, captions and final delivery for each platform.</p></li>
+  </ol>
+</section>
+
+<section class="projects section-dark" aria-labelledby="projects-title">
+  <div class="section-heading reveal">
+    <p class="kicker">Browse all work</p>
+    <h2 id="projects-title">Projects</h2>
+  </div>
+  <div class="project-list stagger">
+    <a href="work/ai-videos/"><span>01</span><div><h3>AI Videos</h3><small>14 projects</small></div><img src="assets/thumbs/ai-03.jpg" alt="AI video category thumbnail" /><b>View category ↗</b></a>
+    <a href="work/ugc-videos/"><span>02</span><div><h3>UGC Videos</h3><small>2 projects</small></div><img src="assets/thumbs/e-04.jpg" alt="UGC video category thumbnail" /><b>View category ↗</b></a>
+    <a href="work/long-videos/"><span>03</span><div><h3>Long Videos</h3><small>6 projects</small></div><img src="assets/thumbs/yt-02.jpg" alt="Long video category thumbnail" /><b>View category ↗</b></a>
+    <a href="work/office-reels/"><span>04</span><div><h3>Office Reels</h3><small>5 projects</small></div><img src="assets/thumbs/e-13.jpg" alt="Office reel category thumbnail" /><b>View category ↗</b></a>
+  </div>
+</section>
+
+<section class="contact section-light" id="contact" aria-labelledby="contact-title">
+  <div class="contact-layout">
+    <div class="contact-copy reveal">
+      <p class="kicker dark-kicker">Have a story to cut?</p>
+      <h2 id="contact-title">Let’s get<br /><em>in touch.</em></h2>
+      <a class="email-link" href="mailto:arpitraj2332@gmail.com">arpitraj2332@gmail.com ↗</a>
     </div>
-    <ol class="timeline" data-stagger>
-      <li class="timeline-item"><div><span class="timeline-org">Mavilach Group</span><span class="timeline-role">Video Editor</span></div><div class="timeline-detail"><time>Jul 2026 — Aug 2026</time><p>Short-form social content, AI-generated videos, in-house office reels and anchor-led edits.</p></div></li>
-      <li class="timeline-item"><div><span class="timeline-org">Bharat Update</span><span class="timeline-role">Video Editor Intern</span></div><div class="timeline-detail"><time>Dec 2025 — Mar 2026</time><p>Explainers, voice-over reels, anchor-led videos and end-to-end post-production on deadline.</p></div></li>
-      <li class="timeline-item"><div><span class="timeline-org">WE YUVA</span><span class="timeline-role">Video Editor</span></div><div class="timeline-detail"><time>May 2024 — Nov 2024</time><p>Digital news packages, 100+ YouTube videos and Shorts, plus documentary post-production support.</p></div></li>
-    </ol>
-  </div>
-</section>
-
-<section class="section alt" aria-labelledby="current-title">
-  <div class="shell intro-grid">
-    <div data-reveal><p class="eyebrow">Now / next chapter</p><h2 class="display" id="current-title">InstaAstro, Noida.</h2></div>
-    <div class="intro-copy" data-reveal><p>Starting as <strong>Video Editor at InstaAstro</strong> on 12 October 2026 — bringing short-form storytelling, AI-led visual craft and full-pipeline post-production into the role.</p></div>
-  </div>
-</section>
-
-<section class="contact-band" id="contact" aria-labelledby="contact-title">
-  <div class="shell contact-grid">
-    <h2 class="display" id="contact-title" data-reveal>Let’s cut the next story.</h2>
-    <div class="contact-side" data-reveal><p>For edit enquiries, creative collaborations or portfolio details, reach out directly.</p><div class="contact-links"><a class="button primary" href="mailto:arpitraj2332@gmail.com?subject=Portfolio%20enquiry%20for%20Arpit%20Raj">Email Arpit</a><a class="button secondary" href="https://linkedin.com/in/arpit-raj-373937373" target="_blank" rel="noopener">LinkedIn</a></div></div>
+    <form class="contact-form reveal" data-mail-form>
+      <label>Name<input type="text" name="name" autocomplete="name" required placeholder="Your name" /></label>
+      <label>Email<input type="email" name="email" autocomplete="email" required placeholder="you@example.com" /></label>
+      <label>Message<textarea name="message" rows="5" required placeholder="Tell me about the edit"></textarea></label>
+      <button class="pill dark-pill" type="submit">Compose email <span aria-hidden="true">↗</span></button>
+      <p class="form-note" data-form-note>Opens your email app with the message filled in.</p>
+    </form>
   </div>
 </section>
 </main>
-<footer class="site-footer"><div class="shell footer-row"><span>© 2026 Arpit Raj</span><span>Premiere Pro · Photoshop · Noida, India</span></div></footer>
+
+<footer class="footer">
+  <div class="footer-name">ARPIT RAJ</div>
+  <div class="shape-row" aria-hidden="true"><i class="shape sphere"></i><i class="shape ring"></i><i class="shape cube"></i><i class="shape triangle"></i><i class="shape capsule"></i></div>
+  <div class="footer-bottom">
+    <div class="socials"><a href="https://linkedin.com/in/arpit-raj-373937373" target="_blank" rel="noopener">LinkedIn ↗</a><a href="mailto:arpitraj2332@gmail.com">Email ↗</a></div>
+    <p>© 2026 Arpit Raj · Video Editor · Noida</p>
+    <a href="#top">Back to top ↑</a>
+  </div>
+</footer>
 </body>
 </html>
